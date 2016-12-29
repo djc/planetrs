@@ -16,12 +16,15 @@ mod reader;
 mod catcher;
 mod renderer;
 mod storer;
+mod atom_exporter;
 
 fn main() {
     let feeds = reader::read_feeds("feeds.yml");
     let mut entries = catcher::get_entries(&feeds);
 
     storer::merge_entries(&mut entries, "storage.zip");
+
+    atom_exporter::export(&entries);
 
     let mut data = renderer::Data::new();
     data.feeds = feeds;
