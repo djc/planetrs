@@ -10,6 +10,9 @@ extern crate serde_json;
 #[macro_use] extern crate tera;
 extern crate uuid;
 extern crate zip;
+extern crate clap;
+
+use std::process::exit;
 
 mod entry;
 mod reader;
@@ -19,16 +22,23 @@ mod storer;
 mod atom_exporter;
 
 fn main() {
-    let feeds = reader::read_feeds("feeds.yml");
-    let mut entries = catcher::get_entries(&feeds);
+    let matches = clap::App::new("planetrs")
+                          .version("0.1.0")
+                          .author("Adau/Vagdish <adrien.aubourg@gmail.com>")
+                          .about("Generation of static html files from a list of atom/rss feeds (planet)")
+                          .arg(clap::Arg::with_name("config")
+                               .help("Configuration file path")
+                               .required(true)
+                               .takes_value(true))
+                          .get_matches();
 
+    let config_filepath = matches.value_of("config").expect("No config file entered");
+    let mut data = reader::read_configfile(config_filepath);
+    let mut entries = catcher::get_entries(&data.feeds);
     storer::merge_entries(&mut entries, "storage.zip");
-
-    atom_exporter::export(&entries);
-
-    let mut data = renderer::Data::new();
-    data.feeds = feeds;
     entries.truncate(12);
     data.entries = entries;
-    renderer::render(&data, "templates/main.html", "./output/index.html");
+    atom_exporter::export(&data.entries);
+
+    renderer::render(&data, "templates/main.html", "output/index.html");
 }

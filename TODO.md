@@ -1,5 +1,4 @@
-- Use a config file
-- Use clap as arguments parser: create/update/clean/from-template-only + configfile
+- Use Path for paths of files
 - Error handling
 - Logging
 - Iterator for catcher

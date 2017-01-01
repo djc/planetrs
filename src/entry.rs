@@ -15,12 +15,12 @@ pub struct Entry {
 impl Entry {
     pub fn new() -> Entry {
         Entry {info: FeedInfo::new(),
-               title: "".to_string(),
+               title: String::new(),
                date: chrono::UTC::now(),
-               hdate: "".to_string(),
-               uid: "".to_string(),
-               link: "".to_string(),
-               resume: "".to_string()}
+               hdate: String::new(),
+               uid: String::new(),
+               link: String::new(),
+               resume: String::new()}
     }
 
     pub fn generate_uid(&mut self) {
@@ -43,9 +43,9 @@ pub struct FeedInfo {
 
 impl FeedInfo {
     pub fn new() -> FeedInfo {
-        FeedInfo {id: "".to_string(),
-                  name: "".to_string(),
-                  feedurl: "".to_string(),
-                  homepage: "".to_string()}
+        FeedInfo {id: String::new(),
+                  name: String::new(),
+                  feedurl: String::new(),
+                  homepage: String::new()}
     }
 }
