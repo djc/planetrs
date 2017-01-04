@@ -34,6 +34,10 @@ Feeds:
   name: Patrick Walton
   feedurl: http://pcwalton.github.io/atom.xml
   homepage: http://pcwalton.github.io
+- id: OsInRust
+  name: Writing an OS in Rust
+  feedurl: http://os.phil-opp.com/atom.xml
+  homepage: http://os.phil-opp.com
 - id: RedoxOS
   name: Redox
   feedurl: http://www.redox-os.org/news/index.xml
