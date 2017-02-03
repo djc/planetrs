@@ -1,5 +1,3 @@
-#![feature(dedup_by)]
-#![feature(proc_macro)]
 #[macro_use] extern crate serde_derive;
 extern crate curl;
 extern crate chrono;
@@ -11,6 +9,7 @@ extern crate serde_json;
 extern crate uuid;
 extern crate zip;
 extern crate clap;
+extern crate dedup_by; // Wait for stable 1.16
 
 mod entry;
 mod reader;

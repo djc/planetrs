@@ -3,6 +3,7 @@ use std::fs::File;
 use std::io::Write;
 use zip;
 
+use dedup_by::dedup_by;
 use serde_json;
 
 use entry::Entry;
@@ -28,7 +29,8 @@ pub fn merge_entries<P: AsRef<Path>>(entries: &mut Vec<Entry>, filepath: P) {
             entries.push(entry_ser);
         }
         entries.sort_by(|a, b| a.uid.cmp(&b.uid));
-        entries.dedup_by(|e1, e2| e1.uid == e2.uid);
+        // entries.dedup_by(|e1, e2| e1.uid == e2.uid); // Wait for Rust 1.16 stable
+        dedup_by(entries, |a, b| {a.uid == b.uid});
 
         let f = File::create(&filepath).expect("Storer cant create file");
         let serialized = serde_json::to_string(entries).expect("Storer cant json entries (merge)");

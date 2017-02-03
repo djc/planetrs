@@ -1,7 +1,6 @@
 use std::fs::File;
 use std::io::prelude::*;
 use std::path::Path;
-use std::env::home_dir;
 
 use tera::{Tera, Context};
 

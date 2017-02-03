@@ -16,3 +16,4 @@ tera = "0.5.0"
 uuid = { version = "0.3.1", features = ["v5"] }
 zip = "0.2.0"
 clap = "2.19.3"
+dedup_by = "0.1.0" # Wait for stable 1.16
