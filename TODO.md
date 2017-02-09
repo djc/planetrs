@@ -1,8 +1,7 @@
-- Use a config file
-- Use clap as arguments parser: create/update/clean/from-template-only + configfile
 - Error handling
 - Logging
 - Iterator for catcher
+- html without rust refs
 - Code cleanup
 - Categories
 - Multiple pages

@@ -1,0 +1,48 @@
+---
+Title: Planet Rust
+Subtitle: The Rust programming language feeds
+
+Entries_per_page: 12
+Entries_in_atom: 20
+
+Feeds:
+- id: RustLang
+  name: The Rust Programming Language Blog
+  feedurl: https://blog.rust-lang.org/feed.xml
+  homepage: https://blog.rust-lang.org
+- id: RustWeek
+  name: This week in Rust
+  feedurl: https://this-week-in-rust.org/rss.xml
+  homepage: https://this-week-in-rust.org
+- id: SteveKlabnik
+  name: Steve Klabnik
+  feedurl: http://feeds.feedburner.com/steveklabnik/words
+  homepage: http://words.steveklabnik.com
+- id: HuonWilson
+  name: Huon Wilson
+  feedurl: http://huonw.github.io/blog/rss.xml
+  homepage: http://huonw.github.io
+- id: NikoMatsakis
+  name: Niko Matsakis
+  feedurl: http://smallcultfollowing.com/babysteps/atom.xml
+  homepage: http://smallcultfollowing.com/babysteps/
+- id: PatrickWalton
+  name: Patrick Walton
+  feedurl: http://pcwalton.github.io/atom.xml
+  homepage: http://pcwalton.github.io
+- id: OsInRust
+  name: Writing an OS in Rust
+  feedurl: http://os.phil-opp.com/atom.xml
+  homepage: http://os.phil-opp.com
+- id: RedoxOS
+  name: Redox
+  feedurl: http://www.redox-os.org/news/index.xml
+  homepage: http://www.redox-os.org
+- id: Piston
+  name: Piston
+  feedurl: http://blog.piston.rs/atom.xml
+  homepage: http://www.piston.rs
+- id: SuspectSemantics
+  name: Suspect Semantics
+  feedurl: http://www.suspectsemantics.com/atom.xml
+  homepage: http://www.suspectsemantics.com
