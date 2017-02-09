@@ -46,3 +46,7 @@ Feeds:
   name: Suspect Semantics
   feedurl: http://www.suspectsemantics.com/atom.xml
   homepage: http://www.suspectsemantics.com
+- id: KarolKuczmarski:
+  name: Karol Kuczmarski
+  feedurl: http://xion.io/feeds/atom.xml
+  homepage: http://xion.io/

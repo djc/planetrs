@@ -37,6 +37,6 @@ pub fn export(entries: &Vec<Entry>) {
         ..Default::default()
     };
 
-    let mut f = File::create("output/atom.xml").expect("Cant create atom file");
+    let mut f = File::create("html/atom.xml").expect("Cant create atom file");
     f.write_all(&atom_feed.to_string().into_bytes()).expect("Cant write atom file");
 }
