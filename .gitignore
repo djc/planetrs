@@ -2,4 +2,4 @@ target
 Cargo.lock
 *.zip
 atom.xml
-output/index.html
+html/index.html

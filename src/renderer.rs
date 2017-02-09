@@ -29,9 +29,6 @@ impl Data {
 }
 
 pub fn render(data: &Data) {
-    // let mut main_path = data.template_folder.clone();
-    // main_path.set_file_name("main.html");
-
     let mut tera = Tera::new("./templates/**/*.html").expect("Cant compile html");
     tera.autoescape_on(vec![]);
     let mut context = Context::new();

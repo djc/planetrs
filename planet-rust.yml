@@ -46,7 +46,11 @@ Feeds:
   name: Suspect Semantics
   feedurl: http://www.suspectsemantics.com/atom.xml
   homepage: http://www.suspectsemantics.com
-- id: KarolKuczmarski:
-  name: Karol Kuczmarski
-  feedurl: http://xion.io/feeds/atom.xml
-  homepage: http://xion.io/
+# - id: KarolKuczmarski (atom feed isn't valid: https://validator.w3.org/feed/check.cgi?url=http%3A%2F%2Fxion.io%2Ffeeds%2Fatom.xml)
+#   name: Karol Kuczmarski
+#   feedurl: http://xion.io/feeds/atom.xml
+#   homepage: http://xion.io/
+# - id: RustDocWeek (atom feed isn't valid: https://validator.w3.org/feed/check.cgi?url=http%3A%2F%2Fguillaumegomez.github.io%2Fthis-week-in-rust-docs%2Ffeed.xml)
+#   name: This week in Rust Docs
+#   feedurl: http://guillaumegomez.github.io/this-week-in-rust-docs/feed.xml
+#   homepage: http://guillaumegomez.github.io/this-week-in-rust-docs/
