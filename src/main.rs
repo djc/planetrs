@@ -32,10 +32,10 @@ fn main() {
     let config_filepath = matches.value_of("config").expect("No config file entered");
     let mut data = reader::read_configfile(config_filepath);
     let mut entries = catcher::get_entries(&data.feeds);
-    storer::merge_entries(&mut entries, &data.storage_filepath);
+    storer::merge_entries(&mut entries, "storage.zip");
     entries.truncate(12);
     data.entries = entries;
     atom_exporter::export(&data.entries);
 
-    renderer::render(&data, &data.template_folder, &data.output_folder);
+    renderer::render(&data);
 }

@@ -1,5 +1,3 @@
-- Renderer Path correction !!
-- Use Path for paths of files
 - Error handling
 - Logging
 - Iterator for catcher

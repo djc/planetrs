@@ -13,9 +13,6 @@ pub fn read_configfile<P: AsRef<Path>>(path: P) -> Data {
 
     data.title = yaml_map.get(&serde_yaml::Value::String("Title".to_string())).unwrap().as_str().unwrap().to_string();
     data.subtitle = yaml_map.get(&serde_yaml::Value::String("Subtitle".to_string())).unwrap().as_str().unwrap().to_string();
-    data.storage_filepath = yaml_map.get(&serde_yaml::Value::String("Storage_filepath".to_string())).unwrap().as_str().unwrap().to_string();
-    data.template_folder = yaml_map.get(&serde_yaml::Value::String("Template_folder".to_string())).unwrap().as_str().unwrap().to_string();
-    data.output_folder = yaml_map.get(&serde_yaml::Value::String("Output_folder".to_string())).unwrap().as_str().unwrap().to_string();
 
     data.entries_per_page = yaml_map.get(&serde_yaml::Value::String("Entries_per_page".to_string())).unwrap().as_i64().unwrap() as u32;
     data.entries_in_atom = yaml_map.get(&serde_yaml::Value::String("Entries_in_atom".to_string())).unwrap().as_i64().unwrap() as u32;
