@@ -30,6 +30,10 @@ Feeds:
   name: Patrick Walton
   feedurl: http://pcwalton.github.io/atom.xml
   homepage: http://pcwalton.github.io
+- id: Llogiq
+  name: Llogiq
+  feedurl: https://llogiq.github.io/feed.xml
+  homepage: https://llogiq.github.io
 - id: OsInRust
   name: Writing an OS in Rust
   feedurl: http://os.phil-opp.com/atom.xml
