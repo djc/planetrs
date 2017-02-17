@@ -31,7 +31,7 @@ Feeds:
   feedurl: http://pcwalton.github.io/atom.xml
   homepage: http://pcwalton.github.io
 - id: Llogiq
-  name Llogiq
+  name: Llogiq
   feedurl: https://llogiq.github.io/feed.xml
   homepage: https://llogiq.github.io
 - id: OsInRust
