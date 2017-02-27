@@ -58,3 +58,7 @@ Feeds:
   name: This week in Rust Docs
   feedurl: http://guillaumegomez.github.io/this-week-in-rust-docs/feed.xml
   homepage: http://guillaumegomez.github.io/this-week-in-rust-docs/
+- id: Integer32
+  name: Integer 32
+  feedurl: http://www.integer32.com/feed.xml
+  homepage: http://www.integer32.com
