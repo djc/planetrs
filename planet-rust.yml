@@ -62,3 +62,7 @@ Feeds:
   name: Integer 32
   feedurl: http://www.integer32.com/feed.xml
   homepage: http://www.integer32.com
+- id: ServoWeek
+  name: This week in Servo
+  feedurl: https://blog.servo.org/feed.xml
+  homepage: https://blog.servo.org
