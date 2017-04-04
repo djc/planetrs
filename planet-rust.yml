@@ -66,3 +66,7 @@ Feeds:
   name: This week in Servo
   feedurl: https://blog.servo.org/feed.xml
   homepage: https://blog.servo.org
+- id: RustCommunity
+  name: Rust Community Blog
+  feedurl: http://blog.community.rs/feed.xml
+  homepage: http://blog.community.rs/
