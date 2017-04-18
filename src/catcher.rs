@@ -41,8 +41,13 @@ pub fn get_entries(feeds: &Vec<FeedInfo>) -> Vec<Entry> {
                 if let Ok(f) = buf.parse::<rss::Channel>() {
                     rss_to_entries(f, &fi, &th_entries)
                 }
-                if let Ok(f) = buf.parse::<atom_syndication::Feed>() {
+                else if let Ok(f) = buf.parse::<atom_syndication::Feed>() {
                     atom_to_entries(f, &fi, &th_entries)
+                }
+                else {
+                    println!("Cant parse feed: {}", fi.id);
+                    println!("{:?}", buf.parse::<rss::Channel>());
+                    println!("{:?}", buf.parse::<atom_syndication::Feed>());
                 }
             })
         )
