@@ -40,8 +40,8 @@ Feeds:
   homepage: http://os.phil-opp.com
 - id: RedoxOS
   name: Redox
-  feedurl: http://www.redox-os.org/news/index.xml
-  homepage: http://www.redox-os.org
+  feedurl: https://www.redox-os.org/news/index.xml
+  homepage: https://www.redox-os.org
 - id: Piston
   name: Piston
   feedurl: http://blog.piston.rs/atom.xml
