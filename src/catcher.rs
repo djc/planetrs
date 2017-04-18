@@ -82,10 +82,10 @@ fn atom_to_entries(f: atom_syndication::Feed, info: &FeedInfo, v: &Arc<Mutex<Vec
         entry.info = (*info).clone();
         entry.title = item.clone().title;
         entry.link = item.clone().links[0].clone().href;
-        if let atom_syndication::Content::Text(txt) = item.clone().content.expect("no atom content") {
+        if let Some(atom_syndication::Content::Text(txt)) = item.clone().content {
             entry.resume = select_first_paragraph(txt)
         }
-        if let atom_syndication::Content::Html(txt) = item.clone().content.expect("no atom content") {
+        else if let Some(atom_syndication::Content::Html(txt)) = item.clone().content {
             entry.resume = select_first_paragraph(txt)
         }
         let temp = item.clone().updated;
