@@ -5,7 +5,7 @@ extern crate atom_syndication;
 extern crate rss;
 extern crate serde_yaml;
 extern crate serde_json;
-#[macro_use] extern crate tera;
+extern crate tera;
 extern crate uuid;
 extern crate zip;
 extern crate clap;
