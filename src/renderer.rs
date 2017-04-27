@@ -19,12 +19,14 @@ pub struct Data {
 
 impl Data {
     pub fn new() -> Data {
-        Data {title: String::new(),
-              subtitle: String::new(),
-              entries_per_page: 0u32,
-              entries_in_atom: 0u32,
-              feeds: Vec::new(),
-              entries: Vec::new()}
+        Data {
+            title: String::new(),
+            subtitle: String::new(),
+            entries_per_page: 0u32,
+            entries_in_atom: 0u32,
+            feeds: Vec::new(),
+            entries: Vec::new(),
+        }
     }
 }
 
@@ -33,7 +35,8 @@ pub fn render(data: &Data) {
     tera.autoescape_on(vec![]);
     let mut context = Context::new();
     context.add("data", data);
-    let output = tera.render("templates/main.html", context).expect("Tera couldnt render output");
+    let output = tera.render("templates/main.html", context)
+        .expect("Tera couldnt render output");
     let mut f = File::create("./html/index.html").expect("Cant create file for html output");
     let _ = f.write_all(output.as_bytes());
 }

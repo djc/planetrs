@@ -14,18 +14,22 @@ pub struct Entry {
 
 impl Entry {
     pub fn new() -> Entry {
-        Entry {info: FeedInfo::new(),
-               title: String::new(),
-               date: chrono::UTC::now(),
-               hdate: String::new(),
-               uid: String::new(),
-               link: String::new(),
-               resume: String::new()}
+        Entry {
+            info: FeedInfo::new(),
+            title: String::new(),
+            date: chrono::UTC::now(),
+            hdate: String::new(),
+            uid: String::new(),
+            link: String::new(),
+            resume: String::new(),
+        }
     }
 
     pub fn generate_uid(&mut self) {
         let data = (*self.title).to_string() + &self.info.id;
-        self.uid = uuid::Uuid::new_v5(&uuid::NAMESPACE_OID, &data).hyphenated().to_string();
+        self.uid = uuid::Uuid::new_v5(&uuid::NAMESPACE_OID, &data)
+            .hyphenated()
+            .to_string();
     }
 
     pub fn generate_human_date(&mut self) {
@@ -43,9 +47,11 @@ pub struct FeedInfo {
 
 impl FeedInfo {
     pub fn new() -> FeedInfo {
-        FeedInfo {id: String::new(),
-                  name: String::new(),
-                  feedurl: String::new(),
-                  homepage: String::new()}
+        FeedInfo {
+            id: String::new(),
+            name: String::new(),
+            feedurl: String::new(),
+            homepage: String::new(),
+        }
     }
 }
