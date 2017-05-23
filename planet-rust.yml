@@ -78,3 +78,7 @@ Feeds:
   name: Jonathan Turner
   feedurl: http://www.jonathanturner.org/feed.xml
   homepage: http://www.jonathanturner.org
+- id: RalfsRamblings
+  name: Ralf's Ramblings
+  feedurl: https://www.ralfj.de/blog/categories/rust.xml
+  homepage: https://www.ralfj.de/
