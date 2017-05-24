@@ -3,3 +3,5 @@ Cargo.lock
 *.zip
 atom.xml
 html/index.html
+
+entries\.json

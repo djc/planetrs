@@ -76,6 +76,7 @@ fn rss_to_entries(f: rss::Channel, info: &FeedInfo, v: &Arc<Mutex<Vec<Entry>>>) 
         entry.date = chrono::DateTime::parse_from_rfc2822(item.clone()
                                                               .pub_date
                                                               .expect("rss date failed")
+                                                              .replace("UTC", "+0000")
                                                               .as_ref())
                 .expect("parse date failed")
                 .with_timezone(&chrono::UTC);
@@ -107,7 +108,12 @@ fn atom_to_entries(f: atom_syndication::Feed, info: &FeedInfo, v: &Arc<Mutex<Vec
 }
 
 fn select_first_paragraph(txt: String) -> String {
-    let temp_str = txt.split("<p>").nth(1).expect("Bad <p> split");
-    let temp_str = temp_str.split("</p>").nth(0).expect("Bad </p> split");
-    temp_str.to_string()
+    let temp_str = txt.replace("&lt;", "<").replace("&gt;", ">");
+    if temp_str.split("<p>").nth(1).is_some() {
+        let temp_str = temp_str.split("<p>").nth(1).expect("Bad <p> split");
+        let temp_str = temp_str.split("</p>").nth(0).expect("Bad </p> split");
+        temp_str.to_string()
+    } else {
+        temp_str.to_string()
+    }
 }
