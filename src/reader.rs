@@ -43,6 +43,7 @@ pub fn read_configfile<P: AsRef<Path>>(path: P) -> Data {
     for feed in feeds_seq {
         data.feeds.push(parse_feed(feed));
     }
+    data.feeds.sort_by(|a, b| a.name.cmp(&b.name));
 
     data
 }
