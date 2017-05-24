@@ -78,3 +78,11 @@ Feeds:
   name: Jonathan Turner
   feedurl: http://www.jonathanturner.org/feed.xml
   homepage: http://www.jonathanturner.org
+- id: AndrewGallant
+  name: Andrew Gallant
+  feedurl: http://blog.burntsushi.net/index.xml
+  homepage: http://blog.burntsushi.net
+- id: EmbeddedInRust
+  name: Embedded in Rust
+  feedurl: http://blog.japaric.io/index.xml
+  homepage: http://blog.japaric.io
