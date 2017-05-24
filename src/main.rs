@@ -8,9 +8,7 @@ extern crate serde_yaml;
 extern crate serde_json;
 extern crate tera;
 extern crate uuid;
-extern crate zip;
 extern crate clap;
-extern crate dedup_by; // Wait for stable 1.16
 
 mod entry;
 mod reader;
@@ -35,7 +33,7 @@ fn main() {
         .expect("No config file entered");
     let mut data = reader::read_configfile(config_filepath);
     let mut entries = catcher::get_entries(&data.feeds);
-    storer::merge_entries(&mut entries, "storage.zip");
+    storer::merge_entries(&mut entries, "entries.json");
     entries.truncate(12);
     data.entries = entries;
     atom_exporter::export(&data.entries);
