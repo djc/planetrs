@@ -86,3 +86,7 @@ Feeds:
   name: Embedded in Rust
   feedurl: http://blog.japaric.io/index.xml
   homepage: http://blog.japaric.io
+- id: RalfsRamblings
+  name: Ralf's Ramblings
+  feedurl: https://www.ralfj.de/blog/categories/rust.xml
+  homepage: https://www.ralfj.de/
