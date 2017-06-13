@@ -90,3 +90,7 @@ Feeds:
   name: Ralf's Ramblings
   feedurl: https://www.ralfj.de/blog/categories/rust.xml
   homepage: https://www.ralfj.de/
+- id: Psychopath
+  name: Psychopath
+  feedurl: http://psychopath.io/rss/
+  homepage: http://psychopath.io/
