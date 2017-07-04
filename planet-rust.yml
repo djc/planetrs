@@ -36,8 +36,8 @@ Feeds:
   homepage: https://llogiq.github.io
 - id: OsInRust
   name: Writing an OS in Rust
-  feedurl: http://os.phil-opp.com/atom.xml
-  homepage: http://os.phil-opp.com
+  feedurl: https://os.phil-opp.com/atom.xml
+  homepage: https://os.phil-opp.com
 - id: RedoxOS
   name: Redox
   feedurl: https://www.redox-os.org/news/index.xml
