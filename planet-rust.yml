@@ -36,7 +36,7 @@ Feeds:
   homepage: https://llogiq.github.io
 - id: OsInRust
   name: Writing an OS in Rust
-  feedurl: https://os.phil-opp.com/atom.xml
+  feedurl: https://os.phil-opp.com/rss.xml
   homepage: https://os.phil-opp.com
 - id: RedoxOS
   name: Redox
@@ -72,8 +72,8 @@ Feeds:
   homepage: http://blog.community.rs/
 - id: ManishGoregaokar
   name: Manish Goregaokar
-  feedurl: http://manishearth.github.io/atom.xml
-  homepage: http://manishearth.github.io
+  feedurl: https://manishearth.github.io/atom.xml
+  homepage: https://manishearth.github.io
 - id: JonathanTurner
   name: Jonathan Turner
   feedurl: http://www.jonathanturner.org/feed.xml
