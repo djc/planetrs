@@ -5,7 +5,7 @@ use atom_syndication;
 
 use entry::Entry;
 
-pub fn export(entries: &Vec<Entry>) {
+pub fn export(entries: &[Entry]) {
     let mut atom_entries = Vec::<atom_syndication::Entry>::new();
     for entry in entries.iter().take(20) {
         let main_link = atom_syndication::Link {
