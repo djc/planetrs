@@ -11,13 +11,13 @@ use atom_syndication;
 use entry::FeedInfo;
 use entry::Entry;
 
-pub fn get_entries(feeds: &Vec<FeedInfo>) -> Vec<Entry> {
-    let inner_fi = feeds.clone();
+pub fn get_entries(feeds: &[FeedInfo]) -> Vec<Entry> {
+    let inner_fi = feeds.to_owned();
     let mut th_entries = Arc::new(Mutex::new(Vec::<Entry>::new()));
 
     let mut handles = Vec::new();
     for fi in inner_fi {
-        let th_entries = th_entries.clone();
+        let th_entries = Arc::clone(&th_entries);
         handles.push(thread::spawn(move || {
             let mut dst = Vec::new();
             let mut handle = Easy::new();
@@ -42,9 +42,9 @@ pub fn get_entries(feeds: &Vec<FeedInfo>) -> Vec<Entry> {
 
             let buf = String::from_utf8(dst).expect("Cant convert dst to buf");
             if let Ok(f) = buf.parse::<rss::Channel>() {
-                rss_to_entries(f, &fi, &th_entries)
+                rss_to_entries(&f, &fi, &th_entries)
             } else if let Ok(f) = buf.parse::<atom_syndication::Feed>() {
-                atom_to_entries(f, &fi, &th_entries)
+                atom_to_entries(&f, &fi, &th_entries)
             } else {
                 println!("Cant parse feed: {}", fi.id);
                 println!("{:?}", buf.parse::<rss::Channel>());
@@ -57,22 +57,21 @@ pub fn get_entries(feeds: &Vec<FeedInfo>) -> Vec<Entry> {
         let _ = h.join();
     }
 
-    let v = Arc::get_mut(&mut th_entries)
+    Arc::get_mut(&mut th_entries)
         .expect("getmut arc failed")
         .get_mut()
         .expect("getmut mutex failed")
-        .clone();
-    v
+        .clone()
 }
 
-fn rss_to_entries(f: rss::Channel, info: &FeedInfo, v: &Arc<Mutex<Vec<Entry>>>) {
-    for item in f.items.iter() {
+fn rss_to_entries(f: &rss::Channel, info: &FeedInfo, v: &Arc<Mutex<Vec<Entry>>>) {
+    for item in &f.items {
         let mut entry = Entry::new();
         entry.info = (*info).clone();
         entry.title = item.clone().title.expect("rss title failed");
         entry.link = item.clone().link.expect("rss link failed");
         let temp_resume = item.clone().description.expect("rss content failed");
-        entry.resume = select_first_paragraph(temp_resume);
+        entry.resume = select_first_paragraph(&temp_resume);
         entry.date = chrono::DateTime::parse_from_rfc2822(item.clone()
                                                               .pub_date
                                                               .expect("rss date failed")
@@ -86,16 +85,16 @@ fn rss_to_entries(f: rss::Channel, info: &FeedInfo, v: &Arc<Mutex<Vec<Entry>>>) 
     }
 }
 
-fn atom_to_entries(f: atom_syndication::Feed, info: &FeedInfo, v: &Arc<Mutex<Vec<Entry>>>) {
-    for item in f.entries.iter() {
+fn atom_to_entries(f: &atom_syndication::Feed, info: &FeedInfo, v: &Arc<Mutex<Vec<Entry>>>) {
+    for item in &f.entries {
         let mut entry = Entry::new();
         entry.info = (*info).clone();
         entry.title = item.clone().title;
         entry.link = item.clone().links[0].clone().href;
         if let Some(atom_syndication::Content::Text(txt)) = item.clone().content {
-            entry.resume = select_first_paragraph(txt)
+            entry.resume = select_first_paragraph(&txt)
         } else if let Some(atom_syndication::Content::Html(txt)) = item.clone().content {
-            entry.resume = select_first_paragraph(txt)
+            entry.resume = select_first_paragraph(&txt)
         }
         let temp = item.clone().updated;
         entry.date = chrono::DateTime::parse_from_rfc3339(temp.as_ref())
@@ -107,7 +106,7 @@ fn atom_to_entries(f: atom_syndication::Feed, info: &FeedInfo, v: &Arc<Mutex<Vec
     }
 }
 
-fn select_first_paragraph(txt: String) -> String {
+fn select_first_paragraph(txt: &str) -> String {
     let temp_str = txt.replace("&lt;", "<").replace("&gt;", ">");
     if temp_str.split("<p>").nth(1).is_some() {
         let temp_str = temp_str.split("<p>").nth(1).expect("Bad <p> split");
