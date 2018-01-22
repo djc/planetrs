@@ -8,34 +8,26 @@ use entry::Entry;
 pub fn export(entries: &[Entry]) {
     let mut atom_entries = Vec::<atom_syndication::Entry>::new();
     for entry in entries.iter().take(20) {
-        let main_link = atom_syndication::Link {
-            href: entry.link.clone(),
-            ..Default::default()
-        };
-        let temp_entry = atom_syndication::Entry {
-            id: entry.uid.clone(),
-            title: entry.title.clone(),
-            updated: entry.date.to_rfc3339(),
-            links: vec![main_link],
-            ..Default::default()
-        };
+        let mut main_link = atom_syndication::Link::default();
+        main_link.set_href(entry.link.as_ref());
+        let mut temp_entry = atom_syndication::Entry::default();
+        temp_entry.set_id(entry.uid.as_ref());
+        temp_entry.set_title(entry.title.as_ref());
+        temp_entry.set_updated(entry.date.to_rfc3339());
+        temp_entry.set_links(vec![main_link]);
         atom_entries.push(temp_entry);
     }
 
-    let main_link = atom_syndication::Link {
-        href: "www.planet-rust.com".to_owned(),
-        ..Default::default()
-    };
+    let mut main_link = atom_syndication::Link::default();
+    main_link.set_href("http://www.planet-rust.com/");
     let last_update = entries[0].date;
 
-    let atom_feed = atom_syndication::Feed {
-        id: String::from("www.planet-rust.com"),
-        title: String::from("Planet Rust"),
-        links: vec![main_link],
-        updated: last_update.to_rfc3339(),
-        entries: atom_entries,
-        ..Default::default()
-    };
+    let mut atom_feed = atom_syndication::Feed::default();
+    atom_feed.set_id("www.planet-rust.com");
+    atom_feed.set_title("Planet Rust");
+    atom_feed.set_links(vec![main_link]);
+    atom_feed.set_updated(last_update.to_rfc3339());
+    atom_feed.set_entries(atom_entries);
 
     let mut f = File::create("html/atom.xml").expect("Cant create atom file");
     f.write_all(&atom_feed.to_string().into_bytes())

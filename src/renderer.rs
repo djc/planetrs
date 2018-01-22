@@ -35,7 +35,7 @@ pub fn render(data: &Data) {
     tera.autoescape_on(vec![]);
     let mut context = Context::new();
     context.add("data", data);
-    let output = tera.render("templates/main.html", context)
+    let output = tera.render("main.html", &context)
         .expect("Tera couldnt render output");
     let mut f = File::create("./html/index.html").expect("Cant create file for html output");
     let _ = f.write_all(output.as_bytes());

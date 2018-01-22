@@ -78,7 +78,7 @@ fn rss_to_entries(f: &rss::Channel, info: &FeedInfo, v: &Arc<Mutex<Vec<Entry>>>)
                                                               .replace("UTC", "+0000")
                                                               .as_ref())
                 .expect("parse date failed")
-                .with_timezone(&chrono::UTC);
+                .with_timezone(&chrono::Utc);
         entry.generate_human_date();
         entry.generate_uid();
         v.lock().expect("v lock failed").push(entry);
@@ -86,20 +86,23 @@ fn rss_to_entries(f: &rss::Channel, info: &FeedInfo, v: &Arc<Mutex<Vec<Entry>>>)
 }
 
 fn atom_to_entries(f: &atom_syndication::Feed, info: &FeedInfo, v: &Arc<Mutex<Vec<Entry>>>) {
-    for item in &f.entries {
+    for item in f.entries() {
         let mut entry = Entry::new();
         entry.info = (*info).clone();
-        entry.title = item.clone().title;
-        entry.link = item.clone().links[0].clone().href;
-        if let Some(atom_syndication::Content::Text(txt)) = item.clone().content {
-            entry.resume = select_first_paragraph(&txt)
-        } else if let Some(atom_syndication::Content::Html(txt)) = item.clone().content {
-            entry.resume = select_first_paragraph(&txt)
+        entry.title = item.clone().title().to_string();
+        entry.link = item.clone().links()[0].clone().href().to_string();
+        if let Some(content) = item.content() {
+            match content.content_type() {
+                Some("text") | Some("html") | Some("xhtml") => {
+                    entry.resume = select_first_paragraph(content.value().unwrap());
+                },
+                Some(_) | None => {},
+            }
         }
-        let temp = item.clone().updated;
+        let temp = item.updated();
         entry.date = chrono::DateTime::parse_from_rfc3339(temp.as_ref())
             .expect("rss date failed")
-            .with_timezone(&chrono::UTC);
+            .with_timezone(&chrono::Utc);
         entry.generate_human_date();
         entry.generate_uid();
         v.lock().expect("v lock failed").push(entry);
