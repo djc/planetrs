@@ -5,7 +5,7 @@ use uuid;
 pub struct Entry {
     pub info: FeedInfo,
     pub title: String,
-    pub date: chrono::datetime::DateTime<chrono::UTC>,
+    pub date: chrono::DateTime<chrono::Utc>,
     pub hdate: String,
     pub uid: String,
     pub link: String,
@@ -17,7 +17,7 @@ impl Entry {
         Entry {
             info: FeedInfo::new(),
             title: String::new(),
-            date: chrono::UTC::now(),
+            date: chrono::Utc::now(),
             hdate: String::new(),
             uid: String::new(),
             link: String::new(),
