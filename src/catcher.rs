@@ -11,7 +11,7 @@ use atom_syndication;
 use entry::FeedInfo;
 use entry::Entry;
 
-pub fn get_entries(feeds: &[FeedInfo]) -> Vec<Entry> {
+pub fn get_entries(feeds: &[FeedInfo], quiet: bool) -> Vec<Entry> {
     let inner_fi = feeds.to_owned();
     let mut th_entries = Arc::new(Mutex::new(Vec::<Entry>::new()));
 
@@ -36,7 +36,9 @@ pub fn get_entries(feeds: &[FeedInfo]) -> Vec<Entry> {
                     .expect("Cant set write_fn");
                 match transfer.perform() {
                     Err(e) => println!("Perform() failed ({}): {}", fi.id, e),
-                    Ok(_) => println!("Successful download of {}", fi.id),
+                    Ok(_) => if !quiet {
+                        println!("Successful download of {}", fi.id)
+                    },
                 }
             }
 
