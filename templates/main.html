@@ -27,7 +27,18 @@
   <div id="container" class="clear">
     <section id="slider"><img src="images/rust-logo.png" alt=""></section>
     <!-- content body -->
-    <aside id="left_column">
+    <!-- main content -->
+    <div id="content">
+      <!-- {% for entry in data.entries %} -->
+      <article>
+        <h2>{{ entry.title }}</h2>
+        <h3>{{ entry.info.name }} - {{ entry.hdate }}</h3>
+        <p>{{ entry.resume }}</p>
+        <footer class="more"><a href="{{ entry.link }}">Read More &raquo;</a></footer>
+      </article>
+      <!-- {% endfor %} -->
+    </div>
+    <aside id="right_column">
       <h2 class="title">Feeds</h2>
       <nav>
         <ul>
@@ -54,17 +65,6 @@
 
       <!-- /section -->
     </aside>
-    <!-- main content -->
-    <div id="content">
-      <!-- {% for entry in data.entries %} -->
-      <article>
-        <h2>{{ entry.title }}</h2>
-        <h3>{{ entry.info.name }} - {{ entry.hdate }}</h3>
-        <p>{{ entry.resume }}</p>
-        <footer class="more"><a href="{{ entry.link }}">Read More &raquo;</a></footer>
-      </article>
-      <!-- {% endfor %} -->
-    </div>
     <!-- / content body -->
   </div>
 </div>
