@@ -26,6 +26,11 @@ pub fn export(entries: &[Entry]) {
             .href("http://www.planet-rust.com/")
             .build()
             .expect("default link builder failed"),
+        atom_syndication::LinkBuilder::default()
+            .href("http://www.planet-rust.com/atom.xml")
+            .rel("self")
+            .build()
+            .expect("default link builder failed"),
     ]);
     atom_feed.set_updated(entries[0].date.to_rfc3339());
     atom_feed.set_entries(atom_entries);
