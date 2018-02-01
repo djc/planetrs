@@ -81,6 +81,10 @@ fn rss_to_entries(f: &rss::Channel, info: &FeedInfo, v: &Arc<Mutex<Vec<Entry>>>)
                                                               .as_ref())
                 .expect("parse date failed")
                 .with_timezone(&chrono::Utc);
+        entry.author = match item.author {
+            Some(ref name) => name.clone(),
+            None => info.name.clone(),
+        };
         entry.generate_human_date();
         v.lock().expect("v lock failed").push(entry);
     }
@@ -104,6 +108,12 @@ fn atom_to_entries(f: &atom_syndication::Feed, info: &FeedInfo, v: &Arc<Mutex<Ve
         entry.date = chrono::DateTime::parse_from_rfc3339(temp.as_ref())
             .expect("rss date failed")
             .with_timezone(&chrono::Utc);
+        if !item.authors().is_empty() {
+            let person = item.authors().first().unwrap();
+            entry.author = person.name().to_string();
+        } else {
+            entry.author = info.name.clone()
+        }
         entry.generate_human_date();
         v.lock().expect("v lock failed").push(entry);
     }

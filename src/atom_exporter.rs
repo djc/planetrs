@@ -15,6 +15,12 @@ pub fn export(entries: &[Entry]) {
         temp_entry.set_title(entry.title.as_ref());
         temp_entry.set_updated(entry.date.to_rfc3339());
         temp_entry.set_links(vec![main_link]);
+        temp_entry.set_authors(vec![
+            atom_syndication::PersonBuilder::default()
+                .name(entry.author.clone())
+                .build()
+                .expect("person builder failed"),
+        ]);
         atom_entries.push(temp_entry);
     }
 

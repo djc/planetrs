@@ -8,6 +8,7 @@ pub struct Entry {
     pub hdate: String,
     pub link: String,
     pub resume: String,
+    pub author: String,
 }
 
 impl Entry {
@@ -19,6 +20,7 @@ impl Entry {
             hdate: String::new(),
             link: String::new(),
             resume: String::new(),
+            author: String::new(),
         }
     }
 
