@@ -96,18 +96,18 @@ blockquote:after, q:after{content:' �'; font-size:26px; line-height:0;}
 
 /* ------Left Column-----*/
 
-#container #left_column{float:left; width:280px;}
-#container #left_column h2.title{margin-bottom:15px; padding-bottom:15px; border-bottom:1px solid #333;}
+#container #right_column{float:right; width:280px;}
+#container #right_column h2.title{margin-bottom:15px; padding-bottom:15px; border-bottom:1px solid #333;}
 
-#container #left_column nav{display:block; width:100%; margin-bottom:30px;}
-#container #left_column nav ul{margin:0; padding:0; list-style:none;}
-#container #left_column nav li{margin:0 0 3px 0; padding:0;}
-#container #left_column nav li.last{margin-bottom:0;}
-#container #left_column nav a:hover{color:#428BCA; background-color:#FFFFFF;}
+#container #right_column nav{display:block; width:100%; margin-bottom:30px;}
+#container #right_column nav ul{margin:0; padding:0; list-style:none;}
+#container #right_column nav li{margin:0 0 3px 0; padding:0;}
+#container #right_column nav li.last{margin-bottom:0;}
+#container #right_column nav a:hover{color:#428BCA; background-color:#FFFFFF;}
 
 /* ------Main Content-----*/
 
-#container #content{float:right; width:630px; line-height:1.6em;}
+#container #content{float:left; width:630px; line-height:1.6em;}
 #container #content article{margin-bottom:30px;}
 #container #content .last{margin:0;}
 
