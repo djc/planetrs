@@ -67,15 +67,14 @@ pub fn get_entries(feeds: &[FeedInfo], quiet: bool) -> Vec<Entry> {
 }
 
 fn rss_to_entries(f: &rss::Channel, info: &FeedInfo, v: &Arc<Mutex<Vec<Entry>>>) {
-    for item in &f.items {
+    for item in f.items() {
         let mut entry = Entry::new();
         entry.info = (*info).clone();
-        entry.title = item.clone().title.expect("rss title failed");
-        entry.link = item.clone().link.expect("rss link failed");
-        let temp_resume = item.clone().description.expect("rss content failed");
+        entry.title = item.title().expect("rss title failed").to_string();
+        entry.link = item.link().expect("rss link failed").to_string();
+        let temp_resume = item.description().expect("rss content failed").to_string();
         entry.resume = select_first_paragraph(&temp_resume);
-        entry.date = chrono::DateTime::parse_from_rfc2822(item.clone()
-                                                              .pub_date
+        entry.date = chrono::DateTime::parse_from_rfc2822(item.pub_date()
                                                               .expect("rss date failed")
                                                               .replace("UTC", "+0000")
                                                               .as_ref())
