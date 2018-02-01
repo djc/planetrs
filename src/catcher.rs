@@ -35,9 +35,9 @@ pub fn get_entries(feeds: &[FeedInfo], quiet: bool) -> Vec<Entry> {
                                     })
                     .expect("Cant set write_fn");
                 match transfer.perform() {
-                    Err(e) => println!("Perform() failed ({}): {}", fi.id, e),
+                    Err(e) => println!("Perform() failed ({}): {}", fi.name, e),
                     Ok(_) => if !quiet {
-                        println!("Successful download of {}", fi.id)
+                        println!("Successful download of {}", fi.name)
                     },
                 }
             }
@@ -48,7 +48,7 @@ pub fn get_entries(feeds: &[FeedInfo], quiet: bool) -> Vec<Entry> {
             } else if let Ok(f) = buf.parse::<atom_syndication::Feed>() {
                 atom_to_entries(&f, &fi, &th_entries)
             } else {
-                println!("Cant parse feed: {}", fi.id);
+                println!("Cant parse feed: {}", fi.name);
                 println!("{:?}", buf.parse::<rss::Channel>());
                 println!("{:?}", buf.parse::<atom_syndication::Feed>());
             }

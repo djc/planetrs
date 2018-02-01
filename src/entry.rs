@@ -26,7 +26,7 @@ impl Entry {
     }
 
     pub fn generate_uid(&mut self) {
-        let data = (*self.title).to_string() + &self.info.id;
+        let data = (*self.title).to_string() + &self.info.name;
         self.uid = uuid::Uuid::new_v5(&uuid::NAMESPACE_OID, &data)
             .hyphenated()
             .to_string();
@@ -39,7 +39,6 @@ impl Entry {
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct FeedInfo {
-    pub id: String,
     pub name: String,
     pub feedurl: String,
     pub homepage: String,
@@ -48,7 +47,6 @@ pub struct FeedInfo {
 impl FeedInfo {
     pub fn new() -> FeedInfo {
         FeedInfo {
-            id: String::new(),
             name: String::new(),
             feedurl: String::new(),
             homepage: String::new(),

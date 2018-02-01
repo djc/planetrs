@@ -6,187 +6,141 @@ Entries_per_page: 12
 Entries_in_atom: 20
 
 Feeds:
-- id: RustLang
-  name: The Rust Programming Language Blog
+- name: The Rust Programming Language Blog
   feedurl: https://blog.rust-lang.org/feed.xml
   homepage: https://blog.rust-lang.org
-- id: RustWeek
-  name: This week in Rust
+- name: This week in Rust
   feedurl: https://this-week-in-rust.org/rss.xml
   homepage: https://this-week-in-rust.org
-- id: SteveKlabnik
-  name: Steve Klabnik
+- name: Steve Klabnik
   feedurl: http://feeds.feedburner.com/steveklabnik/words
   homepage: http://words.steveklabnik.com
-- id: HuonWilson
-  name: Huon Wilson
+- name: Huon Wilson
   feedurl: http://huonw.github.io/blog/rss.xml
   homepage: http://huonw.github.io
-- id: NikoMatsakis
-  name: Niko Matsakis
+- name: Niko Matsakis
   feedurl: http://smallcultfollowing.com/babysteps/atom.xml
   homepage: http://smallcultfollowing.com/babysteps/
-- id: PatrickWalton
-  name: Patrick Walton
+- name: Patrick Walton
   feedurl: http://pcwalton.github.io/atom.xml
   homepage: http://pcwalton.github.io
-- id: Llogiq
-  name: Llogiq
+- name: Llogiq
   feedurl: https://llogiq.github.io/feed.xml
   homepage: https://llogiq.github.io
-- id: OsInRust
-  name: Writing an OS in Rust
+- name: Writing an OS in Rust
   feedurl: https://os.phil-opp.com/rss.xml
   homepage: https://os.phil-opp.com
-- id: RedoxOS
-  name: Redox
+- name: Redox
   feedurl: https://www.redox-os.org/news/index.xml
   homepage: https://www.redox-os.org
-- id: Piston
-  name: Piston
+- name: Piston
   feedurl: http://blog.piston.rs/atom.xml
   homepage: http://www.piston.rs
-- id: SuspectSemantics
-  name: Suspect Semantics
+- name: Suspect Semantics
   feedurl: http://www.suspectsemantics.com/atom.xml
   homepage: http://www.suspectsemantics.com
-- id: KarolKuczmarski
-  name: Karol Kuczmarski
+- name: Karol Kuczmarski
   feedurl: http://xion.io/feeds/atom.xml
   homepage: http://xion.io/
-- id: RustDocWeek
-  name: This week in Rust Docs
+- name: This week in Rust Docs
   feedurl: http://guillaumegomez.github.io/this-week-in-rust-docs/feed.xml
   homepage: http://guillaumegomez.github.io/this-week-in-rust-docs/
-- id: Integer32
-  name: Integer 32
+- name: Integer 32
   feedurl: http://www.integer32.com/feed.xml
   homepage: http://www.integer32.com
-- id: ServoWeek
-  name: This week in Servo
+- name: This week in Servo
   feedurl: https://blog.servo.org/feed.xml
   homepage: https://blog.servo.org
-- id: RustCommunity
-  name: Rust Community Blog
+- name: Rust Community Blog
   feedurl: http://blog.community.rs/feed.xml
   homepage: http://blog.community.rs/
-- id: ManishGoregaokar
-  name: Manish Goregaokar
+- name: Manish Goregaokar
   feedurl: https://manishearth.github.io/atom.xml
   homepage: https://manishearth.github.io
-- id: JonathanTurner
-  name: Jonathan Turner
+- name: Jonathan Turner
   feedurl: http://www.jonathanturner.org/feed.xml
   homepage: http://www.jonathanturner.org
-- id: AndrewGallant
-  name: Andrew Gallant
+- name: Andrew Gallant
   feedurl: http://blog.burntsushi.net/index.xml
   homepage: http://blog.burntsushi.net
-- id: EmbeddedInRust
-  name: Embedded in Rust
+- name: Embedded in Rust
   feedurl: http://blog.japaric.io/index.xml
   homepage: http://blog.japaric.io
-- id: RalfsRamblings
-  name: Ralf's Ramblings
+- name: Ralf's Ramblings
   feedurl: https://www.ralfj.de/blog/categories/rust.xml
   homepage: https://www.ralfj.de/
-- id: Psychopath
-  name: Psychopath
+- name: Psychopath
   feedurl: http://psychopath.io/rss/
   homepage: http://psychopath.io/
-- id: MatthiasBeyer
-  name: Matthias Beyer
+- name: Matthias Beyer
   feedurl: https://beyermatthias.de/tags/rust/index.xml
   homepage: https://beyermatthias.de/blog/
-- id: MuraliMohanRath
-  name: Murali Mohan Rath
+- name: Murali Mohan Rath
   feedurl: http://www.mmrath.com/tags/rust/index.xml
   homepage: http://www.mmrath.com/
-- id: BrianTroutwine
-  name: Brian L. Troutwine
+- name: Brian L. Troutwine
   feedurl: http://blog.troutwine.us/tag/rust/rss/
   homepage: http://blog.troutwine.us/
-- id: MatthewMayer
-  name: Matthew Mayer
+- name: Matthew Mayer
   feedurl: https://matthewkmayer.github.io/blag/public/index.xml
   homepage: https://matthewkmayer.github.io/blag/public/index.html
-- id: QuietMisdreavus
-  name: quiet misdreavus
+- name: quiet misdreavus
   feedurl: https://quietmisdreavus.net/feed.code.xml
   homepage: http://quietmisdreavus.net
-- id: KyleHuey
-  name: Kyle Huey
+- name: Kyle Huey
   feedurl: http://blog.kylehuey.com/tagged/rust/rss # Tumblr
   homepage: http://blog.kylehuey.com/
-- id: LukasKalbertodt
-  name: Lukas Kalbertodt
+- name: Lukas Kalbertodt
   feedurl: https://lukaskalbertodt.github.io/feed.xml
   homepage: https://lukaskalbertodt.github.io/
-- id: KasperAndersen
-  name: Kasper Andersen
+- name: Kasper Andersen
   feedurl: https://kasma1990.gitlab.io/tags/rust/index.xml # Ghost
   homepage: https://kasma1990.gitlab.io/
-- id: NickCameron
-  name: Nick Cameron
+- name: Nick Cameron
   feedurl: https://www.ncameron.org/blog/rss/
   homepage: https://www.ncameron.org/blog/
-- id: RasmusKaj
-  name: Rasmus Kaj
+- name: Rasmus Kaj
   feedurl: https://rasmus.krats.se/atom-en-rust.xml
   homepage: https://rasmus.krats.se/en
-- id: ClausMatzinger
-  name: Claus Matzinger
+- name: Claus Matzinger
   feedurl: https://blog.x5ff.xyz/categories/rust/index.xml # HuGo
   homepage: https://blog.x5ff.xyz/
-- id: WayCooler
-  name: Way Cooler
+- name: Way Cooler
   feedurl: http://way-cooler.org/feed.xml
   homepage: http://way-cooler.org/blog/
-- id: WithoutBoats
-  name: Without Boats
+- name: Without Boats
   feedurl: https://boats.gitlab.io/blog/index.xml
   homepage: https://boats.gitlab.io/blog/
-- id: AaronTuron
-  name: Aaron Turon
+- name: Aaron Turon
   feedurl: http://aturon.github.io/atom.xml
   homepage: http://aturon.github.io/
-- id: PascalHertleif
-  name: Pascal Hertleif
+- name: Pascal Hertleif
   feedurl: https://deterministic.space/feed.xml
   homepage: https://deterministic.space/
-- id: blueJEKYLL
-  name: Benjamin Fry
+- name: Benjamin Fry
   feedurl: https://bluejekyll.github.io/blog/feed.xml
   homepage: https://bluejekyll.github.io/blog/
-- id: GeoffroyCouprie
-  name: Geoffroy Couprie
+- name: Geoffroy Couprie
   feedurl: https://unhandledexpression.com/category/rust/feed/
   homepage: https://unhandledexpression.com/
-- id: DirkjanOchtman
-  name: Dirkjan Ochtman
+- name: Dirkjan Ochtman
   feedurl: https://dirkjan.ochtman.nl/writing/feeds/rust.atom.xml
   homepage: https://dirkjan.ochtman.nl/
-- id: JuliaEvans
-  name: Julia Evans
+- name: Julia Evans
   feedurl: https://jvns.ca/categories/rust/atom.xml
   homepage: https://jvns.ca/
-- id: SergeyPotapov
-  name: Sergey Potapov
+- name: Sergey Potapov
   feedurl: http://greyblake.com/blog/categories/rust/atom.xml
   homepage: http://greyblake.com/
-- id: WillMurphy
-  name: Will Murphy
+- name: Will Murphy
   feedurl: https://willmurphyscode.net/category/rust/feed/ # Wordpress
   homepage: https://willmurphyscode.net/
-- id: RahulSharma
-  name: Rahul Sharma
+- name: Rahul Sharma
   feedurl: https://creativcoder.github.io/tags/rust/index.xml
   homepage: https://creativcoder.github.io/
-- id: JorgeAparicio
-  name: Jorge Aparicio
+- name: Jorge Aparicio
   feedurl: http://blog.japaric.io/index.xml
   homepage: http://blog.japaric.io/
-- id: MikaelZayenz
-  name: Mikael Zayenz
+- name: Mikael Zayenz
   feedurl: https://blog.zayenz.se/tags/rust/index.xml
   homepage: https://blog.zayenz.se/

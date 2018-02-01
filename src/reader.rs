@@ -52,17 +52,10 @@ fn parse_feed(yml_feed: &serde_yaml::Value) -> FeedInfo {
     let mut fi = FeedInfo::new();
     let feed_map = yml_feed.as_mapping().expect("Couldnt parse feed as map");
 
-    let id_key = &serde_yaml::Value::String("name".to_string());
     let name_key = &serde_yaml::Value::String("name".to_string());
     let url_key = &serde_yaml::Value::String("feedurl".to_string());
     let home_key = &serde_yaml::Value::String("homepage".to_string());
 
-    fi.id = feed_map
-        .get(id_key)
-        .expect("value name")
-        .as_str()
-        .expect("name str")
-        .to_string();
     fi.name = feed_map
         .get(name_key)
         .expect("value name")
