@@ -1,5 +1,4 @@
 use chrono;
-use uuid;
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct Entry {
@@ -7,7 +6,6 @@ pub struct Entry {
     pub title: String,
     pub date: chrono::DateTime<chrono::Utc>,
     pub hdate: String,
-    pub uid: String,
     pub link: String,
     pub resume: String,
 }
@@ -19,17 +17,9 @@ impl Entry {
             title: String::new(),
             date: chrono::Utc::now(),
             hdate: String::new(),
-            uid: String::new(),
             link: String::new(),
             resume: String::new(),
         }
-    }
-
-    pub fn generate_uid(&mut self) {
-        let data = (*self.title).to_string() + &self.info.id;
-        self.uid = uuid::Uuid::new_v5(&uuid::NAMESPACE_OID, &data)
-            .hyphenated()
-            .to_string();
     }
 
     pub fn generate_human_date(&mut self) {

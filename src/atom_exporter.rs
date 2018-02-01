@@ -11,7 +11,7 @@ pub fn export(entries: &[Entry]) {
         let mut main_link = atom_syndication::Link::default();
         main_link.set_href(entry.link.as_ref());
         let mut temp_entry = atom_syndication::Entry::default();
-        temp_entry.set_id(entry.uid.as_ref());
+        temp_entry.set_id(entry.link.as_ref());
         temp_entry.set_title(entry.title.as_ref());
         temp_entry.set_updated(entry.date.to_rfc3339());
         temp_entry.set_links(vec![main_link]);

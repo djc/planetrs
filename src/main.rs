@@ -7,7 +7,6 @@ extern crate rss;
 extern crate serde_yaml;
 extern crate serde_json;
 extern crate tera;
-extern crate uuid;
 extern crate clap;
 
 mod entry;

@@ -13,5 +13,4 @@ curl = "0.4"
 rss = "0.4"
 atom_syndication = "0.5"
 tera = "0.10"
-uuid = { version = "0.5", features = ["v5"] }
 clap = "2.29"

@@ -82,7 +82,6 @@ fn rss_to_entries(f: &rss::Channel, info: &FeedInfo, v: &Arc<Mutex<Vec<Entry>>>)
                 .expect("parse date failed")
                 .with_timezone(&chrono::Utc);
         entry.generate_human_date();
-        entry.generate_uid();
         v.lock().expect("v lock failed").push(entry);
     }
 }
@@ -106,7 +105,6 @@ fn atom_to_entries(f: &atom_syndication::Feed, info: &FeedInfo, v: &Arc<Mutex<Ve
             .expect("rss date failed")
             .with_timezone(&chrono::Utc);
         entry.generate_human_date();
-        entry.generate_uid();
         v.lock().expect("v lock failed").push(entry);
     }
 }

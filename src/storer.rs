@@ -19,8 +19,8 @@ pub fn merge_entries<P: AsRef<Path>>(entries: &mut Vec<Entry>, filepath: P) {
         for entry_ser in serialized {
             entries.push(entry_ser);
         }
-        entries.sort_by(|a, b| a.uid.cmp(&b.uid));
-        entries.dedup_by(|e1, e2| e1.uid == e2.uid);
+        entries.sort_by(|a, b| a.link.cmp(&b.link));
+        entries.dedup_by(|e1, e2| e1.link == e2.link);
 
         let mut f = File::create(&filepath).expect("Storer cant create file");
         let serialized = serde_json::to_string(entries).expect("Storer cant json entries (merge)");
