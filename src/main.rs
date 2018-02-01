@@ -8,6 +8,7 @@ extern crate serde_yaml;
 extern crate serde_json;
 extern crate tera;
 extern crate clap;
+extern crate url;
 
 mod entry;
 mod reader;

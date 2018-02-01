@@ -7,6 +7,7 @@ use curl::easy::Easy;
 use chrono;
 use rss;
 use atom_syndication;
+use url::Url;
 
 use entry::FeedInfo;
 use entry::Entry;
@@ -67,11 +68,14 @@ pub fn get_entries(feeds: &[FeedInfo], quiet: bool) -> Vec<Entry> {
 }
 
 fn rss_to_entries(f: &rss::Channel, info: &FeedInfo, v: &Arc<Mutex<Vec<Entry>>>) {
+    let base = Url::parse(&info.feedurl).expect("invalid feed URL");
     for item in &f.items {
         let mut entry = Entry::new();
         entry.info = (*info).clone();
         entry.title = item.clone().title.expect("rss title failed");
-        entry.link = item.clone().link.expect("rss link failed");
+        let item_link = item.link.clone().expect("rss link failed");
+        let link = base.join(&item_link).expect("rss joining link failed");
+        entry.link = link.into_string();
         let temp_resume = item.clone().description.expect("rss content failed");
         entry.resume = select_first_paragraph(&temp_resume);
         entry.date = chrono::DateTime::parse_from_rfc2822(item.clone()
@@ -91,11 +95,13 @@ fn rss_to_entries(f: &rss::Channel, info: &FeedInfo, v: &Arc<Mutex<Vec<Entry>>>)
 }
 
 fn atom_to_entries(f: &atom_syndication::Feed, info: &FeedInfo, v: &Arc<Mutex<Vec<Entry>>>) {
+    let base = Url::parse(&info.feedurl).expect("invalid feed URL");
     for item in f.entries() {
         let mut entry = Entry::new();
         entry.info = (*info).clone();
         entry.title = item.clone().title().to_string();
-        entry.link = item.clone().links()[0].clone().href().to_string();
+        let link = base.join(item.links()[0].href()).expect("joining link failed");
+        entry.link = link.into_string();
         if let Some(content) = item.content() {
             match content.content_type() {
                 Some("text") | Some("html") | Some("xhtml") => {
