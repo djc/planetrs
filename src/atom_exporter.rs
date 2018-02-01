@@ -23,7 +23,7 @@ pub fn export(entries: &[Entry]) {
     let last_update = entries[0].date;
 
     let mut atom_feed = atom_syndication::Feed::default();
-    atom_feed.set_id("www.planet-rust.com");
+    atom_feed.set_id("http://www.planet-rust.com/");
     atom_feed.set_title("Planet Rust");
     atom_feed.set_links(vec![main_link]);
     atom_feed.set_updated(last_update.to_rfc3339());
