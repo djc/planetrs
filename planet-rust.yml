@@ -94,3 +94,99 @@ Feeds:
   name: Psychopath
   feedurl: http://psychopath.io/rss/
   homepage: http://psychopath.io/
+- id: MatthiasBeyer
+  name: Matthias Beyer
+  feedurl: https://beyermatthias.de/tags/rust/index.xml
+  homepage: https://beyermatthias.de/blog/
+- id: MuraliMohanRath
+  name: Murali Mohan Rath
+  feedurl: http://www.mmrath.com/tags/rust/index.xml
+  homepage: http://www.mmrath.com/
+- id: BrianTroutwine
+  name: Brian L. Troutwine
+  feedurl: http://blog.troutwine.us/tag/rust/rss/
+  homepage: http://blog.troutwine.us/
+- id: MatthewMayer
+  name: Matthew Mayer
+  feedurl: https://matthewkmayer.github.io/blag/public/index.xml
+  homepage: https://matthewkmayer.github.io/blag/public/index.html
+- id: QuietMisdreavus
+  name: quiet misdreavus
+  feedurl: https://quietmisdreavus.net/feed.code.xml
+  homepage: http://quietmisdreavus.net
+- id: KyleHuey
+  name: Kyle Huey
+  feedurl: http://blog.kylehuey.com/tagged/rust/rss # Tumblr
+  homepage: http://blog.kylehuey.com/
+- id: LukasKalbertodt
+  name: Lukas Kalbertodt
+  feedurl: https://lukaskalbertodt.github.io/feed.xml
+  homepage: https://lukaskalbertodt.github.io/
+- id: KasperAndersen
+  name: Kasper Andersen
+  feedurl: https://kasma1990.gitlab.io/tags/rust/index.xml # Ghost
+  homepage: https://kasma1990.gitlab.io/
+- id: NickCameron
+  name: Nick Cameron
+  feedurl: https://www.ncameron.org/blog/rss/
+  homepage: https://www.ncameron.org/blog/
+- id: RasmusKaj
+  name: Rasmus Kaj
+  feedurl: https://rasmus.krats.se/atom-en-rust.xml
+  homepage: https://rasmus.krats.se/en
+- id: ClausMatzinger
+  name: Claus Matzinger
+  feedurl: https://blog.x5ff.xyz/categories/rust/index.xml # HuGo
+  homepage: https://blog.x5ff.xyz/
+- id: WayCooler
+  name: Way Cooler
+  feedurl: http://way-cooler.org/feed.xml
+  homepage: http://way-cooler.org/blog/
+- id: WithoutBoats
+  name: Without Boats
+  feedurl: https://boats.gitlab.io/blog/index.xml
+  homepage: https://boats.gitlab.io/blog/
+- id: AaronTuron
+  name: Aaron Turon
+  feedurl: http://aturon.github.io/atom.xml
+  homepage: http://aturon.github.io/
+- id: PascalHertleif
+  name: Pascal Hertleif
+  feedurl: https://deterministic.space/feed.xml
+  homepage: https://deterministic.space/
+- id: blueJEKYLL
+  name: Benjamin Fry
+  feedurl: https://bluejekyll.github.io/blog/feed.xml
+  homepage: https://bluejekyll.github.io/blog/
+- id: GeoffroyCouprie
+  name: Geoffroy Couprie
+  feedurl: https://unhandledexpression.com/category/rust/feed/
+  homepage: https://unhandledexpression.com/
+- id: DirkjanOchtman
+  name: Dirkjan Ochtman
+  feedurl: https://dirkjan.ochtman.nl/writing/feeds/rust.atom.xml
+  homepage: https://dirkjan.ochtman.nl/
+- id: JuliaEvans
+  name: Julia Evans
+  feedurl: https://jvns.ca/categories/rust/atom.xml
+  homepage: https://jvns.ca/
+- id: SergeyPotapov
+  name: Sergey Potapov
+  feedurl: http://greyblake.com/blog/categories/rust/atom.xml
+  homepage: http://greyblake.com/
+- id: WillMurphy
+  name: Will Murphy
+  feedurl: https://willmurphyscode.net/category/rust/feed/ # Wordpress
+  homepage: https://willmurphyscode.net/
+- id: RahulSharma
+  name: Rahul Sharma
+  feedurl: https://creativcoder.github.io/tags/rust/index.xml
+  homepage: https://creativcoder.github.io/
+- id: JorgeAparicio
+  name: Jorge Aparicio
+  feedurl: http://blog.japaric.io/index.xml
+  homepage: http://blog.japaric.io/
+- id: MikaelZayenz
+  name: Mikael Zayenz
+  feedurl: https://blog.zayenz.se/tags/rust/index.xml
+  homepage: https://blog.zayenz.se/
